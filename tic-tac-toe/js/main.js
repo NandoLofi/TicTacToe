@@ -28,12 +28,10 @@ let winner; //can be 3 things
 //timer - bonus
 
 /*----- cached element references -----*/
+const domMessage = document.querySelector('h2');
+const domSquares = document.querySelectorAll('.square');
+const resetBuutton = document.querySelector('button');
 
-
-
-// the games squares
-//reset button/
-//mesasge container - h1
 
 /*----- event listeners -----*/
 
