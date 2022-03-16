@@ -53,20 +53,53 @@ function init(){
 function handleMove(event){
     // console.log(`${event.target.dataset.square} was clicked`);
     const squareNumber = parseInt(event.target.dataset.square);
+    if(board[squareNumber] || null){
+        return
+    }
     //set index in board array so we know that spot has been claimed
     board[squareNumber] = turn
-    turn *= -1
     //switched the turn
     //check for winner
     winner = checkForWinner()
+    turn *= -1
     //render message to user
 }
-function render(){
-    console.log('render here')
-};
+//puts an X or O on the board within the square
+
 function checkForWinner(){
     console.log('check for winnder function called')
+for (let index in COMBOS) {
+    if(
+    board[COMBOS[index][0]] === turn &&
+    board[COMBOS[index][1]] === turn &&
+    board[COMBOS[index][2]] === turn    
+        ){
+            return turn
+        }
 }
+if (board.inculedes(null)){
+    return null
+}
+
+return 'tie'
+}
+function render(){
+    // console.log('render here')
+    board.forEach(function (value,index) {
+        domSquares[index].textContent = PLAYERS[value]
+    })
+    if (!winner){
+        //tell whose turn it is
+        domMessage.textContent = `${PLAYERS[turn]}'s`
+    }
+    else if (winner == "tie"){
+        domMessage.textContent = 'The game ends in a draw'
+    }
+    else {
+        domMessage.textContent = `${PLAYERS[winner]}`
+    }
+};
+
 //handle user interaction(update state)
 
 //handleMove()
