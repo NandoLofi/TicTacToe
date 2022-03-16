@@ -14,8 +14,17 @@ console.log('JS is working')
 
 /*----- cached element references -----*/
 // the games squares
-//reset button
+//reset button/
+//mesasge container - h1
 
 /*----- event listeners -----*/
 
+//mouse click on square
+//mouse click on reset
+
 /*----- functions -----*/
+
+//initialize start game
+//handle user interaction(update state)
+//check for winning combo (main game logic)
+//render messages to the dom
