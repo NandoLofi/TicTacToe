@@ -30,17 +30,45 @@ let winner; //can be 3 things
 /*----- cached element references -----*/
 const domMessage = document.querySelector('h2');
 const domSquares = document.querySelectorAll('.square');
-const resetBuutton = document.querySelector('button');
-
+const resetButton = document.querySelector('button');
+const gameBoard = document.querySelector('.game-board');
 
 /*----- event listeners -----*/
+gameBoard.addEventListener("click", handleMove); // game squares
+resetButton.addEventListener("click", init)
 
 //mouse click on square
+
 //mouse click on reset
 
 /*----- functions -----*/
 
 //initialize start game
+function init(){
+    console.log('init function here')
+    board = new Array(9).fill(null)
+    turn = 1;
+    winner = null;
+};
+function handleMove(event){
+    // console.log(`${event.target.dataset.square} was clicked`);
+    const squareNumber = parseInt(event.target.dataset.square);
+    //set index in board array so we know that spot has been claimed
+    board[squareNumber] = turn
+    turn *= -1
+    //switched the turn
+    //check for winner
+    winner = checkForWinner()
+    //render message to user
+}
+function render(){
+    console.log('render here')
+};
+function checkForWinner(){
+    console.log('check for winnder function called')
+}
 //handle user interaction(update state)
+
+//handleMove()
 //check for winning combo (main game logic)
 //render messages to the dom
